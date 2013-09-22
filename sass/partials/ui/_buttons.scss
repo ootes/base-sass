@@ -1,0 +1,13 @@
+
+
+.btn-normal{
+	@include button($normal-btn-color);
+}
+
+.btn-cancel{
+	@include button($cancel-btn-color);
+}
+
+.btn-call-to-action{
+	@include button($primary-btn-color);
+}

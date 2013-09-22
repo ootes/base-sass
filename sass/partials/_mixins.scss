@@ -1,0 +1,45 @@
+// contain all mixins
+
+
+%btn{
+	
+}
+
+@mixin button($color){
+	// define colors
+	$top-color : $color;
+	$bottom-color : darken($color, 10%);
+	$contrasted-dark-default: #fff;
+	$contrasted-light-default: #000;
+
+	display: inline-block;
+	padding:4px;
+	text-decoration: none;
+	@include border-radius(4px);
+	@include background-image(linear-gradient(#ccc, #fff));
+
+	font-family: $font-family;
+
+	> div{
+		color: contrast-color($color, #333, #fff, 80%);
+
+		display: block;
+		height:32px;
+		line-height: 32px;
+		padding: 0 20px;
+		font-size: 12px;
+		@include box-sizing(border-box);
+		@include border-radius(4px);
+		@include background-image(linear-gradient($top-color, $bottom-color));
+
+		&:hover{
+			@include background-image(linear-gradient(darken($top-color,5%), darken($bottom-color,5%)));
+		}
+
+		&:active{
+			@include background-image(linear-gradient(darken($top-color,5%), darken($bottom-color,5%)));
+			@include single-box-shadow(rgba(0,0,0,.3), 0px, 3px, 2px, 0px, inset);
+		}
+	}
+
+}
